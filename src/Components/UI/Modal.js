@@ -1,6 +1,7 @@
 import { Button, Modal } from "react-bootstrap";
 
 function ModalCustom(props) {
+  console.log(props.message);
   return (
     <Modal show={props.showModal} onHide={props.onClose}>
       <Modal.Header closeButton>

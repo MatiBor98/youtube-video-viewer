@@ -10,7 +10,7 @@ import { Button, Form, Col, Row, Container } from "react-bootstrap";
 function App() {
   const [foundVideo, setNewVideo] = useState({
     relatedVideos: [],
-    VideoId: null,
+    selectedVideo: null,
   });
 
   const [error, setError] = useState(null);
@@ -31,7 +31,7 @@ function App() {
         setError(null);
         setNewVideo({
           relatedVideos: response.data.items.slice(1),
-          VideoId: response.data.items[0].id.videoId,
+          selectedVideo: response.data.items[0],
         });
       })
       .catch((errorInResponse) => {
@@ -40,10 +40,10 @@ function App() {
       });
     console.log(error);
   };
-  const videoSelectedHandler = (videoId) => {
+  const videoSelectedHandler = (video) => {
     setNewVideo({
       ...foundVideo,
-      VideoId: videoId,
+      selectedVideo: video,
     });
   };
 
@@ -54,22 +54,23 @@ function App() {
         showModal={show}
         onClose={handleClose}
       />
+      <div style={{ backgroundColor: "rgb(24, 24, 24)" }}>
+        <Container>
+          <Row>
+            <Col sm="8" className="mt-5 mb-4">
+              <SearchBar onSearchVideo={searchVideoHandler} />
+            </Col>
+          </Row>
+        </Container>
+        <hr style={{ color: "red" }}></hr>
+      </div>
+
       <Container style={{ backgroundColor: "rgb(24, 24, 24)" }}>
         <Row>
-          <Col sm="8" className="mt-5">
-            <SearchBar onSearchVideo={searchVideoHandler} />
-            <hr></hr>
+          <Col sm="8">
+            <VideoPlayer video={foundVideo.selectedVideo} />
           </Col>
-        </Row>
-        <Row>
-          <Col sm="8" className="my-5">
-            <VideoPlayer videoId={foundVideo.VideoId} />
-          </Col>
-          <Col
-            sm="4"
-            className="my-5 px-7"
-            style={{ backgroundColor: "orange" }}
-          >
+          <Col sm="4" className=" px-5" style={{ backgroundColor: "" }}>
             <VideosList
               onVideoSelected={videoSelectedHandler}
               data={foundVideo.relatedVideos}
