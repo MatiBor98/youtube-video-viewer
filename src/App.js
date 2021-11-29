@@ -1,21 +1,11 @@
-import "./App.css";
-import {
-  Button,
-  Form,
-  Col,
-  Row,
-  Container,
-  InputGroup,
-  FormControl,
-} from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { FaSearch } from "react-icons/fa";
+//import "bootstrap/dist/css/bootstrap.min.css";
 import SearchBar from "./Components/SearchBar";
 import youtubeAPI from "./services/youtubeAPI";
 import { useState } from "react";
 import VideosList from "./Components/VideosList";
 import VideoPlayer from "./Components/VideoPlayer";
 import ModalCustom from "./Components/UI/Modal";
+import { Button, Form, Col, Row, Container } from "react-bootstrap";
 
 function App() {
   const [foundVideo, setNewVideo] = useState({
@@ -66,22 +56,24 @@ function App() {
       />
       <Container style={{ backgroundColor: "rgb(24, 24, 24)" }}>
         <Row>
-          <Col xs="8" className="mt-5">
+          <Col sm="8" className="mt-5">
             <SearchBar onSearchVideo={searchVideoHandler} />
             <hr></hr>
           </Col>
         </Row>
         <Row>
-          <Col xs="8" className="my-5">
+          <Col sm="8" className="my-5">
             <VideoPlayer videoId={foundVideo.VideoId} />
           </Col>
-          <Col xs="4" className="my-5">
-            <div class="”video-responsive”">
-              <VideosList
-                onVideoSelected={videoSelectedHandler}
-                data={foundVideo.relatedVideos}
-              />
-            </div>
+          <Col
+            sm="4"
+            className="my-5 px-7"
+            style={{ backgroundColor: "orange" }}
+          >
+            <VideosList
+              onVideoSelected={videoSelectedHandler}
+              data={foundVideo.relatedVideos}
+            />
           </Col>
         </Row>
       </Container>

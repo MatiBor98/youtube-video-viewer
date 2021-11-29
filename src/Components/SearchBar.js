@@ -1,6 +1,6 @@
 import { Button, Form, InputGroup, FormControl } from "react-bootstrap";
 import { useState, useRef, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
 import { FaSearch } from "react-icons/fa";
 import "./SearchBar.css";
 

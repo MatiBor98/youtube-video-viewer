@@ -1,7 +1,4 @@
-import { Button, Form, InputGroup, FormControl, Modal } from "react-bootstrap";
-import { useState, useRef, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { FaSearch } from "react-icons/fa";
+import { Button, Modal } from "react-bootstrap";
 
 function ModalCustom(props) {
   return (
