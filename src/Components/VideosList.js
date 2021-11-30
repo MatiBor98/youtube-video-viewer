@@ -6,7 +6,7 @@ import { Row } from "react-bootstrap";
 const VideosList = (props) => {
   return (
     <div className="video-list">
-      <Row className="mt-4" style={{ backgroundColor: "" }}>
+      <Row className="mt-4">
         <h3
           style={{
             textAlign: "center",
@@ -16,7 +16,7 @@ const VideosList = (props) => {
           Related Videos
         </h3>
       </Row>
-      <Row className="" style={{ backgroundColor: "" }}>
+      <Row>
         <Video data={props.data} onVideoSelected={props.onVideoSelected} />
       </Row>
     </div>

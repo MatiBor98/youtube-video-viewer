@@ -1,7 +1,7 @@
 //import "bootstrap/dist/css/bootstrap.min.css";
 import SearchBar from "./Components/SearchBar";
 import youtubeAPI from "./services/youtubeAPI";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import VideosList from "./Components/VideosList";
 import VideoPlayer from "./Components/VideoPlayer";
 import ModalCustom from "./Components/UI/Modal";
@@ -12,10 +12,25 @@ function App() {
     relatedVideos: [],
     selectedVideo: null,
   });
+  const [count, setCounter] = useState(0);
 
   const [error, setError] = useState(null);
 
   const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const initialValue = localStorage.getItem("count");
+    if (initialValue) {
+      setCounter(parseInt(initialValue));
+    }
+
+    searchVideoHandler("Hola");
+  }, []);
+
+  //had to use separate useEffect for setting the local storage or else the counter wouldnt work on multiple consecutive refreshes
+  useEffect(() => {
+    localStorage.setItem("count", count);
+  }, [count]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -33,18 +48,24 @@ function App() {
           relatedVideos: response.data.items.slice(1),
           selectedVideo: response.data.items[0],
         });
+        setCounter((count) => count + 1);
       })
       .catch((errorInResponse) => {
         setError(errorInResponse);
         setShow(true);
       });
-    console.log(error);
+    //aca
   };
   const videoSelectedHandler = (video) => {
-    setNewVideo({
+    setNewVideo((state) => ({ ...state, selectedVideo: video }));
+
+    /*setNewVideo({
       ...foundVideo,
       selectedVideo: video,
-    });
+    });*/
+    //aca
+
+    setCounter((count) => count + 1);
   };
 
   return (
@@ -67,14 +88,19 @@ function App() {
 
       <Container style={{ backgroundColor: "rgb(24, 24, 24)" }}>
         <Row>
-          <Col sm="8">
+          <Col md="8">
             <VideoPlayer video={foundVideo.selectedVideo} />
           </Col>
-          <Col sm="4" className=" px-5" style={{ backgroundColor: "" }}>
-            <VideosList
-              onVideoSelected={videoSelectedHandler}
-              data={foundVideo.relatedVideos}
-            />
+          <Col md="4" className=" px-4a">
+            <Row>
+              <VideosList
+                onVideoSelected={videoSelectedHandler}
+                data={foundVideo.relatedVideos}
+              />
+            </Row>
+            <Row className="mt-4">
+              <p>Videos watched: {count}</p>
+            </Row>
           </Col>
         </Row>
       </Container>

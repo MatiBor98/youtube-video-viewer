@@ -8,10 +8,6 @@ function SearchBar(props) {
   const searchInputRef = useRef();
   const [error, setError] = useState();
 
-  useEffect(() => {
-    props.onSearchVideo("Hola");
-  }, []);
-
   const searchVideoHandler = (event) => {
     event.preventDefault();
     const enteredQuery = searchInputRef.current.value;
