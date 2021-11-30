@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Button, Ratio } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const VideoPlayer = (props) => {
   if (!props.video) {
@@ -7,7 +8,7 @@ const VideoPlayer = (props) => {
   }
   return (
     <React.Fragment>
-      <Row>
+      <Row className="m-3">
         <Ratio aspectRatio="16x9">
           <iframe
             className="embed-responsive-item"
@@ -23,9 +24,11 @@ const VideoPlayer = (props) => {
           <h5 style={{ textAlign: "Left" }}>{props.video.snippet.title}</h5>
         </Col>
         <Col sm="2" style={{ margin: "auto", display: "block" }}>
-          <Button bsClass="App" type="submit" variant="dark">
-            Details
-          </Button>
+          <Link to="/videoDetails">
+            <Button bsClass="App" type="submit" variant="dark">
+              Details
+            </Button>
+          </Link>
         </Col>
       </Row>
       <hr style={{ color: "red" }}></hr>

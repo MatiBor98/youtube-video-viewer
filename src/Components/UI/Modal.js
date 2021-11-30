@@ -5,9 +5,9 @@ function ModalCustom(props) {
   return (
     <Modal show={props.showModal} onHide={props.onClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Error</Modal.Title>
+        <Modal.Title>{props.message.title}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>{props.message}</Modal.Body>
+      <Modal.Body>{props.message.detail}</Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={props.onClose}>
           Close
