@@ -47,7 +47,6 @@ function Home() {
       })
       .catch((errorInResponse) => {
         setError(errorInResponse);
-        console.log(errorInResponse);
         setShow(true);
       });
   };

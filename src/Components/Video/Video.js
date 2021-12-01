@@ -7,7 +7,6 @@ function selectVideo(videoObj, onVideoSelected) {
 }
 const Video = (props) => {
   return props.data.map((video, index) => {
-    console.log(video);
     return (
       <Card
         key={index}
