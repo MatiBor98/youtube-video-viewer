@@ -1,3 +1,9 @@
+# Youtube Video Viewer
+
+The project is currently hosted in https://react-video-viewer-c64e8.web.app/
+
+Youtube limits the amount of request a key can make so if you get a 403 error, it is probably because the cuota for that key has been exceeded
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,13 +1,17 @@
-.video {
-  box-shadow: 0 2px 1px lightgray;
-  border: 1px solid lightgray;
-  border-radius: 2px;
+.line-cutter {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.8rem;
 }
 
-.video > .title {
-  text-align: center;
-  padding: 10px;
-  margin: 0;
-  font-weight: 600;
-  font-size: 14px;
+.related-videos-card {
+  border: 1px solid red !important;
+  background-color: rgb(24, 24, 24) !important;
+  cursor: pointer;
+  height: 95px;
+  box-shadow: -3px 5px 44px -5px rgba(171, 55, 55, 0.75);
+  -webkit-box-shadow: -3px 5px 44px -5px rgba(171, 55, 55, 0.75);
+  -moz-box-shadow: -3px 5px 44px -5px rgba(171, 55, 55, 0.75);
 }

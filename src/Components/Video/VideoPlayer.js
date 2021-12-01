@@ -24,7 +24,7 @@ const VideoPlayer = (props) => {
         </Ratio>
       </Row>
       <Row className="mt-3">
-        <Col sm="10" style={{ backgroundColor: "" }}>
+        <Col sm="10">
           <h5 style={{ textAlign: "Left" }}>{props.video.snippet.title}</h5>
         </Col>
         <Col sm="2" style={{ margin: "auto", display: "block" }}>
@@ -45,7 +45,7 @@ const VideoPlayer = (props) => {
           </Link>
         </Col>
       </Row>
-      <hr style={{ color: "red" }}></hr>
+      <hr className="hr-color"></hr>
     </React.Fragment>
   );
 };

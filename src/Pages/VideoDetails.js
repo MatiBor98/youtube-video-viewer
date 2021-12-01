@@ -13,19 +13,15 @@ const VideoDetails = (props) => {
     return <h1 style={{ color: "black" }}>This video isn't available</h1>;
 
   return (
-    <div style={{ backgroundColor: "#282c34" }}>
-      <Container
-        style={{ backgroundColor: "#282c34" }}
-        className=" d-flex flex-column min-vh-100 justify-content-center align-items-center"
-      >
-        <Row className="">
-          <Card className="aloha">
+    <div className="darkGray-color">
+      <Container className=" d-flex flex-column min-vh-100 justify-content-center align-items-center">
+        <Row>
+          <Card className="detailed-video-card">
             <Card.Body>
               <Row className="mb-3">
                 <Link to="/">
                   <Button
                     className=" justify-content-left align-items-left"
-                    bsClass="App"
                     type="submit"
                     variant="dark"
                   >
@@ -36,10 +32,7 @@ const VideoDetails = (props) => {
               <Row>
                 <Col sm="6">
                   <Row>
-                    <Card.Title>
-                      Dalex - Hola Remix ft. Lenny Tavárez, Chencho Corleone,
-                      Juhn "El All Star" (Video Lírico Oficial)
-                    </Card.Title>
+                    <Card.Title>{retrievedVideo.snippet.title}</Card.Title>
                   </Row>
                   <Row>
                     <Card.Img
@@ -47,12 +40,9 @@ const VideoDetails = (props) => {
                     />
                   </Row>
                 </Col>
-                <Col sm="6">
-                  <Row>
-                    <Card
-                      className="mt-3"
-                      style={{ backgroundColor: "#272c34" }}
-                    >
+                <Col sm="6" className="mt-2">
+                  <Row className="mx-2">
+                    <Card className="mb-4 detailed-info-card">
                       <Card.Header>Channel Title</Card.Header>
                       <Card.Body>
                         <Card.Text>
@@ -61,11 +51,8 @@ const VideoDetails = (props) => {
                       </Card.Body>
                     </Card>
                   </Row>
-                  <Row>
-                    <Card
-                      className="mt-3"
-                      style={{ backgroundColor: "#272c34" }}
-                    >
+                  <Row className="mx-2">
+                    <Card className="mb-4 detailed-info-card">
                       <Card.Header>Description</Card.Header>
                       <Card.Body>
                         <Card.Text>
@@ -74,11 +61,8 @@ const VideoDetails = (props) => {
                       </Card.Body>
                     </Card>
                   </Row>
-                  <Row>
-                    <Card
-                      className="mt-3"
-                      style={{ backgroundColor: "#272c34" }}
-                    >
+                  <Row className="mx-2">
+                    <Card className="mb-4 detailed-info-card">
                       <Card.Header>Date Posted</Card.Header>
                       <Card.Body>
                         <Card.Text>

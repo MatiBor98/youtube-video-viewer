@@ -1,6 +1,5 @@
 import { Button, Form, InputGroup, FormControl } from "react-bootstrap";
 import { useState, useRef } from "react";
-//import "bootstrap/dist/css/bootstrap.min.css";
 import { FaSearch } from "react-icons/fa";
 import "./SearchBar.css";
 
@@ -22,12 +21,7 @@ function SearchBar(props) {
   return (
     <Form className="d-flex" onSubmit={searchVideoHandler}>
       <InputGroup>
-        <InputGroup.Text
-          style={{
-            backgroundColor: "rgb(59, 59, 59)",
-            borderColor: "rgb(33, 37, 41)",
-          }}
-        >
+        <InputGroup.Text className="custom-form">
           <FaSearch />
         </InputGroup.Text>
         <FormControl

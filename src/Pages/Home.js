@@ -5,7 +5,7 @@ import { useState, useEffect, useContext } from "react";
 import VideosList from "../Components/Video/VideosList";
 import VideoPlayer from "../Components/Video/VideoPlayer";
 import ModalCustom from "../Components/UI/Modal";
-import { Button, Form, Col, Row, Container } from "react-bootstrap";
+import { Col, Row, Container } from "react-bootstrap";
 import VideoContext from "../context/video-context";
 
 function Home() {
@@ -15,13 +15,11 @@ function Home() {
   const [error, setError] = useState(null);
 
   const [show, setShow] = useState(false);
-
   useEffect(() => {
     const initialValue = localStorage.getItem("count");
     if (initialValue) {
       setCounter(parseInt(initialValue));
     }
-    console.log(ctx.foundVideo);
     if (!ctx.foundVideo.selectedVideo) searchVideoHandler("Codigo del sur");
   }, []);
 
@@ -30,8 +28,7 @@ function Home() {
     localStorage.setItem("count", count);
   }, [count]);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const closeHandler = () => setShow(false);
 
   const searchVideoHandler = async (query) => {
     youtubeAPI
@@ -66,9 +63,9 @@ function Home() {
           error ? { title: "Something went wrong", detail: error.message } : ""
         }
         showModal={show}
-        onClose={handleClose}
+        onClose={closeHandler}
       />
-      <div style={{ backgroundColor: "rgb(24, 24, 24)" }}>
+      <div className="black-color">
         <Container>
           <Row>
             <Col sm="8" className="mt-5 mb-4">
@@ -76,10 +73,10 @@ function Home() {
             </Col>
           </Row>
         </Container>
-        <hr style={{ color: "red" }}></hr>
+        <hr className="hr-color"></hr>
       </div>
 
-      <Container style={{ backgroundColor: "rgb(24, 24, 24)" }}>
+      <Container className="black-color">
         <Row>
           <Col md="8">
             <VideoPlayer video={ctx.foundVideo.selectedVideo} />
