@@ -1,8 +1,12 @@
 import React from "react";
 import { Row, Col, Button, Ratio } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import VideoContext from "../../context/video-context";
+import { useContext } from "react";
 
 const VideoPlayer = (props) => {
+  const ctx = useContext(VideoContext);
+
   if (!props.video) {
     return <h2 style={{ textAlign: "center" }}>Search for a video</h2>;
   }
@@ -25,7 +29,17 @@ const VideoPlayer = (props) => {
         </Col>
         <Col sm="2" style={{ margin: "auto", display: "block" }}>
           <Link to="/videoDetails">
-            <Button bsClass="App" type="submit" variant="dark">
+            <Button
+              bsClass="App"
+              type="submit"
+              variant="dark"
+              onClick={() =>
+                localStorage.setItem(
+                  "video",
+                  JSON.stringify(ctx.foundVideo.selectedVideo)
+                )
+              }
+            >
               Details
             </Button>
           </Link>

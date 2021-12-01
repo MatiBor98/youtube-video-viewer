@@ -2,8 +2,8 @@
 import SearchBar from "../Components/UI/SearchBar";
 import youtubeAPI from "../services/youtubeAPI";
 import { useState, useEffect, useContext } from "react";
-import VideosList from "../Components/VideosList";
-import VideoPlayer from "../Components/VideoPlayer";
+import VideosList from "../Components/Video/VideosList";
+import VideoPlayer from "../Components/Video/VideoPlayer";
 import ModalCustom from "../Components/UI/Modal";
 import { Button, Form, Col, Row, Container } from "react-bootstrap";
 import VideoContext from "../context/video-context";
@@ -22,7 +22,7 @@ function Home() {
       setCounter(parseInt(initialValue));
     }
     console.log(ctx.foundVideo);
-    if (!ctx.foundVideo.selectedVideo) searchVideoHandler("Hola");
+    if (!ctx.foundVideo.selectedVideo) searchVideoHandler("Codigo del sur");
   }, []);
 
   //had to use separate useEffect for setting the local storage or else the counter wouldnt work on multiple consecutive refreshes

@@ -94,7 +94,7 @@ $spacers: map-merge(
       (
         $spacer * 9.375,
       )
-      //150px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+      //150px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
   ),
   $spacers
 );
@@ -111,10 +111,18 @@ $spacers: map-merge(
   border: 1px solid red !important;
   background-color: rgb(24, 24, 24) !important;
   cursor: pointer;
-  height: 95px;
+  //height: 95px;
   box-shadow: -3px 5px 44px -5px rgba(171, 55, 55, 0.75);
   -webkit-box-shadow: -3px 5px 44px -5px rgba(171, 55, 55, 0.75);
   -moz-box-shadow: -3px 5px 44px -5px rgba(171, 55, 55, 0.75);
+}
+
+.aloha {
+  width: 65vw !important;
+  min-height: 75vh !important;
+  @media (max-width: map-get($grid-breakpoints, sm)) {
+    width: 100vw !important;
+  }
 }
 
 @import "~bootstrap/scss/bootstrap";
